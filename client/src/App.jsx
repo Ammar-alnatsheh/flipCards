@@ -1,4 +1,6 @@
 import React from 'react';
+import Cards from './Cards.jsx';
+import Board from './Board.jsx';
 
 class App extends React.Component {
 
@@ -6,7 +8,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             playerName: 'X',
-            board: [],
+            cards: [],
             flippedCard: 0,
             timer: 0,
         }
@@ -15,10 +17,11 @@ class App extends React.Component {
     componentDidMount () {
         let name = prompt('Enter your name');
         let time = new Date();
+        let cards = new Cards();
 
         this.setState({
             playerName: name,
-            board: [],
+            cards: cards.getCards(),
             flippedCard: 0,
             timer: time, 
         });
@@ -27,7 +30,7 @@ class App extends React.Component {
     render() {
         return (
         <div className='App'>
-            <div className="headder">
+            <div className="Headder">
                 <div className="playerName">
                     {`Player Name : ${this.state.playerName}`}
                 </div>
@@ -35,6 +38,7 @@ class App extends React.Component {
                     {`Game start at : ${this.state.timer.toLocaleString()}`}
                 </div>
             </div>
+            <Board cards={this.state.cards} />
         </div>);
     }
 }
