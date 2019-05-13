@@ -1,3 +1,9 @@
 body {
     background-color: rgb(188, 197, 184);
   }
+
+.headder {
+  background-color: white;
+  font-size: 20px;
+  padding: 10px;
+}
