@@ -24,4 +24,5 @@ td {
   background-size: cover; /* Resize the background image to cover the entire container */
   height: 250px;
   width: 150px;
+  cursor: pointer;
 }
