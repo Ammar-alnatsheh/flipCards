@@ -4,10 +4,10 @@ class Cards {
         this.Cards = [];
         for ( let value = 1; value <= 10; value ++) {
           this.Cards.push({
-            value : value
+            value : value,
           });
           this.Cards.push({
-            value : value
+            value : value,
           });
         }
             

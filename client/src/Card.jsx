@@ -18,10 +18,13 @@ class Card extends React.Component {
     }
 
     onClick () {
-        this.setState({
-            value : this.state.value,
-            hidden : !this.state.hidden,
-        });
+        if ( this.state.hidden ) {
+            this.setState({
+                value : this.state.value,
+                hidden : !this.state.hidden,
+            });
+            this.props.flipCard(this.props.card);
+        } 
     }
 
     render() {

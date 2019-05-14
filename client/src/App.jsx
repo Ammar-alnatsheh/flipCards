@@ -7,9 +7,9 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            playerName: 'X',
+            playerName: '',
             cards: [],
-            flippedCard: 0,
+            flippedCard: null,
             timer: 0,
         }
     }
@@ -26,9 +26,29 @@ class App extends React.Component {
         this.setState({
             playerName: name,
             cards: cards,
-            flippedCard: 0,
+            flippedCard: null,
             timer: time, 
         });
+    }
+
+    flipCard (card) {
+        if ( this.state.flippedCard === null ) {
+            this.setState({
+                flippedCard: card,
+            });
+        } else {
+            let preCard = this.state.flippedCard;
+            if ( preCard.value === card.value ) {
+                preCard.hidden = false;
+                card.hidden = false;
+            } else {
+                preCard.hidden = true;
+                card.hidden = true;   
+            }
+            this.setState({
+                flippedCard: null,
+            });
+        }
     }
 
     render() {
@@ -42,7 +62,7 @@ class App extends React.Component {
                     {`Game start at : ${this.state.timer.toLocaleString()}`}
                 </div>
             </div>
-            <Board cards={this.state.cards} />
+            <Board cards={this.state.cards} flipCard={this.flipCard.bind(this)}/>
         </div>);
     }
 }

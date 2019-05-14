@@ -17,22 +17,22 @@ class Board extends React.Component {
                 <tbody>
                     <tr>
                     {row1.map( (card,idx) => {
-                        return <Card key={idx} card={card}/>
+                        return <Card key={idx} card={card} flipCard={this.props.flipCard}/>
                     })}
                     </tr>
                     <tr>
                     {row2.map( (card,idx) => {
-                        return <Card key={idx} card={card}/>
+                        return <Card key={idx} card={card} flipCard={this.props.flipCard}/>
                     })}
                     </tr>
                     <tr>
                     {row3.map( (card,idx) => {
-                        return <Card key={idx} card={card}/>
+                        return <Card key={idx} card={card} flipCard={this.props.flipCard}/>
                     })}
                     </tr>
                     <tr>
                     {row4.map( (card,idx) => {
-                        return <Card key={idx} card={card}/>
+                        return <Card key={idx} card={card} flipCard={this.props.flipCard}/>
                     })}
                     </tr>
                 </tbody>
