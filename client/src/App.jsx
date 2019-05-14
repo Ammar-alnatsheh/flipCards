@@ -16,7 +16,7 @@ class App extends React.Component {
 
     componentDidMount () {
         let name = prompt('Enter your name');
-        let time = new Date();
+        let time = 0;
         let deck = new Cards();
         let cards = deck.getCards();
         cards.forEach( card => {
@@ -29,6 +29,12 @@ class App extends React.Component {
             flippedCard: null,
             timer: time, 
         });
+
+        setInterval(() => {
+            this.setState({
+                timer: this.state.timer + 1
+            });
+        }, 1000);
     }
 
     flipCard (card) {
@@ -59,7 +65,7 @@ class App extends React.Component {
                     {`Player Name : ${this.state.playerName}`}
                 </div>
                 <div className="timer">
-                    {`Game start at : ${this.state.timer.toLocaleString()}`}
+                    {`Time  ${Math.floor(this.state.timer / 60)}:${this.state.timer % 60}`}
                 </div>
             </div>
             <Board cards={this.state.cards} flipCard={this.flipCard.bind(this)}/>
