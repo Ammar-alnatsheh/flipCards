@@ -12,8 +12,16 @@ body {
   padding: 50px;
 }
 
+table {
+  padding: 20px;
+}
+
 td {
   border: 1px solid rgb(119, 6, 124);
-  padding: 50px;
-  margin: 50px;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 250px;
+  width: 150px;
 }
