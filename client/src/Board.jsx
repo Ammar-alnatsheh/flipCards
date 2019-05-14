@@ -12,28 +12,31 @@ class Board extends React.Component {
         let row3 = this.props.cards.slice(8,12);
         let row4 = this.props.cards.slice(12,16);
         return (
-        <div className="Board">
-            <div className='row1'>
-                {row1.map( (card,idx) => {
-                    return (<label key={idx}>{card.value}</label>);
-                })}
-            </div>
-            <div className='row2'>
-                {row2.map( (card,idx) => {
-                    return (<label key={idx * 2}>{card.value}</label>);
-                })}
-            </div>
-            <div className='row3'>
-                {row3.map( (card,idx) => {
-                    return (<label key={idx * 3}>{card.value}</label>);
-                })}
-            </div>
-            <div className='row4'>
-                {row4.map( (card,idx) => {
-                    return (<label key={idx * 4}>{card.value}</label>);
-                })}
-            </div>
-        </div>);
+            <table className="Board">
+                <tbody>
+                    <tr>
+                    {row1.map( (card,idx) => {
+                        return <td key={idx}>{card.value}</td>
+                    })}
+                    </tr>
+                    <tr>
+                    {row2.map( (card,idx) => {
+                        return <td key={idx}>{card.value}</td>
+                    })}
+                    </tr>
+                    <tr>
+                    {row3.map( (card,idx) => {
+                        return <td key={idx}>{card.value}</td>
+                    })}
+                    </tr>
+                    <tr>
+                    {row4.map( (card,idx) => {
+                        return <td key={idx}>{card.value}</td>
+                    })}
+                    </tr>
+                </tbody>
+            </table>
+        );
     }
 }
 

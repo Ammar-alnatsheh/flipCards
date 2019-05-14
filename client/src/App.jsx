@@ -17,11 +17,15 @@ class App extends React.Component {
     componentDidMount () {
         let name = prompt('Enter your name');
         let time = new Date();
-        let cards = new Cards();
+        let deck = new Cards();
+        let cards = deck.getCards();
+        cards.forEach( card => {
+            card.hidden = true;
+        });
 
         this.setState({
             playerName: name,
-            cards: cards.getCards(),
+            cards: cards,
             flippedCard: 0,
             timer: time, 
         });

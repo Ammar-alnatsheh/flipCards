@@ -11,3 +11,9 @@ body {
 .Board {
   padding: 50px;
 }
+
+td {
+  border: 1px solid rgb(119, 6, 124);
+  padding: 50px;
+  margin: 50px;
+}
