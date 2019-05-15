@@ -57,7 +57,7 @@ class App extends React.Component {
                     allCards += 2;
     
                     if (allCards === this.state.cards.length) {
-                        alert("Congragulation, Game finished at " + this.state.timer);
+                        alert(`Congragulation ${this.state.playerName}, Game finished at ${this.state.timer}`);
                     }
     
                 } else {
