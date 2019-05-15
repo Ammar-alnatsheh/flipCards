@@ -11,6 +11,7 @@ class App extends React.Component {
             cards: [],
             flippedCard: null,
             timer: 0,
+            allCards: 0
         }
     }
 
@@ -23,37 +24,51 @@ class App extends React.Component {
             card.hidden = true;
         });
 
-        this.setState({
-            playerName: name,
-            cards: cards,
-            flippedCard: null,
-            timer: time, 
-        });
-
         setInterval(() => {
             this.setState({
                 timer: this.state.timer + 1
             });
         }, 1000);
+
+        this.setState({
+            playerName: name,
+            cards: cards,
+            flippedCard: null,
+            timer: time, 
+            allCards: 0
+        });
     }
 
     flipCard (card) {
+        card.hidden = false;
         if ( this.state.flippedCard === null ) {
             this.setState({
                 flippedCard: card,
             });
         } else {
-            let preCard = this.state.flippedCard;
-            if ( preCard.value === card.value ) {
-                preCard.hidden = false;
-                card.hidden = false;
-            } else {
-                preCard.hidden = true;
-                card.hidden = true;   
-            }
-            this.setState({
-                flippedCard: null,
-            });
+            setTimeout( () => {
+                this.setState(this.state);
+                let preCard = this.state.flippedCard;
+                let allCards = this.state.allCards;
+    
+                if ( preCard.value === card.value ) {
+                    preCard.hidden = false;
+                    card.hidden = false;
+                    allCards += 2;
+    
+                    if (allCards === this.state.cards.length) {
+                        alert("Congragulation, Game finished at " + this.state.timer);
+                    }
+    
+                } else {
+                    preCard.hidden = true;
+                    card.hidden = true; 
+                }
+                this.setState({
+                    flippedCard: null,
+                    allCards: allCards
+                });
+            },1500);
         }
     }
 

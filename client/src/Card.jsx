@@ -18,17 +18,18 @@ class Card extends React.Component {
     }
 
     onClick () {
-        if ( this.state.hidden ) {
-            this.setState({
-                value : this.state.value,
-                hidden : !this.state.hidden,
-            });
+        if ( this.props.card.hidden ) {
             this.props.flipCard(this.props.card);
-        } 
+        }
     }
 
     render() {
-        let image = `./pics/pic${ this.state.hidden ? 0 : this.state.value }.png`;
+        let image = './pics/pic';
+        if ( this.props.card.hidden ) {
+            image += '0.png';
+        } else {
+            image += this.props.card.value + '.png';
+        }
         return (
             <td className="Card" style={{backgroundImage: `url(${image})`}} onClick={this.onClick.bind(this)}>
             </td>
